@@ -1,0 +1,10 @@
+D:\Projects\VisualStudio\Svchost\RedCell.Diagnostics.Update\bin\RedCell.Diagnostics.Update.dll
+D:\Projects\VisualStudio\Svchost\RedCell.Diagnostics.Update\bin\RedCell.Diagnostics.Update.pdb
+D:\Projects\VisualStudio\Svchost\RedCell.Diagnostics.Update\bin\RedCell.Net.dll
+D:\Projects\VisualStudio\Svchost\RedCell.Diagnostics.Update\bin\RedCell.Net.pdb
+D:\Projects\VisualStudio\Svchost\RedCell.Diagnostics.Update\obj\Debug\RedCell.Diagnostics.Update.csprojResolveAssemblyReference.cache
+D:\Projects\VisualStudio\Svchost\RedCell.Diagnostics.Update\obj\Debug\RedCell.Diagnostics.Update.Properties.Resources.resources
+D:\Projects\VisualStudio\Svchost\RedCell.Diagnostics.Update\obj\Debug\RedCell.Diagnostics.Update.csproj.GenerateResource.Cache
+D:\Projects\VisualStudio\Svchost\RedCell.Diagnostics.Update\obj\Debug\RedCell.Diagnostics.Update.dll
+D:\Projects\VisualStudio\Svchost\RedCell.Diagnostics.Update\obj\Debug\RedCell.Diagnostics.Update.pdb
+D:\Projects\VisualStudio\Svchost\RedCell.Diagnostics.Update\bin\RedCell.Diagnostics.Update.dll.config

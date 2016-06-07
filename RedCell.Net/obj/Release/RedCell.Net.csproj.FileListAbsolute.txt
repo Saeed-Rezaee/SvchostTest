@@ -1,0 +1,4 @@
+D:\Projects\VisualStudio\Svchost\RedCell.Net\bin\Release\RedCell.Net.dll
+D:\Projects\VisualStudio\Svchost\RedCell.Net\bin\Release\RedCell.Net.pdb
+D:\Projects\VisualStudio\Svchost\RedCell.Net\obj\Release\RedCell.Net.dll
+D:\Projects\VisualStudio\Svchost\RedCell.Net\obj\Release\RedCell.Net.pdb

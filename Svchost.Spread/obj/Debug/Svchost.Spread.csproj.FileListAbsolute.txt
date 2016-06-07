@@ -1,0 +1,14 @@
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\bin\Debug\Svchost.Spread.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\bin\Debug\Svchost.Spread.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Debug\Svchost.Spread.csprojResolveAssemblyReference.cache
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Debug\Svchost.Spread.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Debug\Svchost.Spread.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Debug\Interop.IWshRuntimeLibrary.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Debug\Svchost.Spread.csproj.ResolveComReference.cache
+D:\DevMain\Svchost\Svchost.Spread\bin\Debug\Svchost.Spread.dll
+D:\DevMain\Svchost\Svchost.Spread\bin\Debug\Svchost.Spread.pdb
+D:\DevMain\Svchost\Svchost.Spread\obj\Debug\Svchost.Spread.csprojResolveAssemblyReference.cache
+D:\DevMain\Svchost\Svchost.Spread\obj\Debug\Interop.IWshRuntimeLibrary.dll
+D:\DevMain\Svchost\Svchost.Spread\obj\Debug\Svchost.Spread.csproj.ResolveComReference.cache
+D:\DevMain\Svchost\Svchost.Spread\obj\Debug\Svchost.Spread.dll
+D:\DevMain\Svchost\Svchost.Spread\obj\Debug\Svchost.Spread.pdb

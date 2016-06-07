@@ -1,0 +1,5 @@
+D:\Projects\VisualStudio\Svchost\RedCell.Net\bin\Debug\Svchost.Net.dll
+D:\Projects\VisualStudio\Svchost\RedCell.Net\bin\Debug\Svchost.Net.pdb
+D:\Projects\VisualStudio\Svchost\RedCell.Net\obj\Debug\Svchost.Net.dll
+D:\Projects\VisualStudio\Svchost\RedCell.Net\obj\Debug\Svchost.Net.pdb
+D:\Projects\VisualStudio\Svchost\RedCell.Net\obj\Debug\Svchost.Net.csprojResolveAssemblyReference.cache

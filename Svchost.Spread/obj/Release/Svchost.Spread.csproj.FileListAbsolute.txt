@@ -1,0 +1,7 @@
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\bin\Release\Svchost.Spread.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\bin\Release\Svchost.Spread.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Release\Svchost.Spread.csprojResolveAssemblyReference.cache
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Release\Interop.IWshRuntimeLibrary.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Release\Svchost.Spread.csproj.ResolveComReference.cache
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Release\Svchost.Spread.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Release\Svchost.Spread.pdb

@@ -1,0 +1,9 @@
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Debug\Svchost.TextHandling.dll
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Debug\Svchost.TextHandling.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Debug\Svchost.Net.dll
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Debug\Svchost.Spread.dll
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Debug\Svchost.Net.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Debug\Svchost.Spread.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\obj\Debug\Svchost.TextHandling.csprojResolveAssemblyReference.cache
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\obj\Debug\Svchost.TextHandling.dll
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\obj\Debug\Svchost.TextHandling.pdb

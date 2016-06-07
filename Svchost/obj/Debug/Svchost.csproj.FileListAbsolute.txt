@@ -1,0 +1,28 @@
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\NVIDIA Updater Service.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\obj\Debug\Svchost.csprojResolveAssemblyReference.cache
+D:\Projects\VisualStudio\Svchost\Svchost\obj\Debug\NVIDIA Updater Service.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\obj\Debug\NVIDIA Updater Service.g.resources
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\Svchost.Update.dll
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\Svchost.Update.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\Svchost.Net.dll
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\Svchost.Net.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\Svchost.Spread.dll
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\Svchost.Spread.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\NVIDIA Updater Service.exe
+D:\Projects\VisualStudio\Svchost\Svchost\obj\Debug\NVIDIA Updater Service.exe
+D:\DevMain\Svchost\Svchost\obj\Debug\NVIDIA Updater Service.exe
+D:\DevMain\Svchost\Svchost\obj\Debug\NVIDIA Updater Service.pdb
+D:\DevMain\Svchost\Svchost\bin\Debug\NVIDIA Updater Service.exe
+D:\DevMain\Svchost\Svchost\bin\Debug\NVIDIA Updater Service.pdb
+D:\DevMain\Svchost\Svchost\bin\Debug\Svchost.Net.dll
+D:\DevMain\Svchost\Svchost\bin\Debug\Svchost.Spread.dll
+D:\DevMain\Svchost\Svchost\bin\Debug\Svchost.Update.dll
+D:\DevMain\Svchost\Svchost\bin\Debug\Svchost.Update.pdb
+D:\DevMain\Svchost\Svchost\bin\Debug\Svchost.Net.pdb
+D:\DevMain\Svchost\Svchost\bin\Debug\Svchost.Spread.pdb
+D:\DevMain\Svchost\Svchost\obj\Debug\Svchost.csprojResolveAssemblyReference.cache
+D:\DevMain\Svchost\Svchost\obj\Debug\NVIDIA Updater Service.g.resources
+D:\Projects\Svchost\Svchost\obj\Debug\NVIDIA Updater Service.exe
+D:\Projects\Svchost\Svchost\obj\Debug\NVIDIA Updater Service.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\Svchost.TextHandling.dll
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\Svchost.TextHandling.pdb

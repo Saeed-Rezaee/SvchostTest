@@ -1,0 +1,14 @@
+D:\Projects\VisualStudio\Svchost\Svchost\obj\Release\Svchost.csprojResolveAssemblyReference.cache
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\NVIDIA Updater Service.exe
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\NVIDIA Updater Service.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\obj\Release\NVIDIA Updater Service.exe
+D:\Projects\VisualStudio\Svchost\Svchost\obj\Release\NVIDIA Updater Service.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.Spread.dll
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.TextHandling.dll
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.Update.dll
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.Net.dll
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.Update.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.Spread.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.TextHandling.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.Net.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\obj\Release\NVIDIA Updater Service.g.resources
