@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7B2F8959-5D87-4AAA-8366-A5C578E89DC6}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Svchost</RootNamespace>
     <AssemblyName>NVIDIA Updater Service</AssemblyName>
@@ -70,7 +70,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RedCell.Diagnostics.Update\Svchost.Update.csproj">
+    <ProjectReference Include="..\IconLib\IconLib.csproj">
+      <Project>{ce53747f-d2e6-4e1e-9ef4-a0ae02671b1d}</Project>
+      <Name>IconLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Svchost.Update\Svchost.Update.csproj">
       <Project>{67d2cca7-489c-42dc-80fc-4b264c0323ee}</Project>
       <Name>Svchost.Update</Name>
       <Private>True</Private>

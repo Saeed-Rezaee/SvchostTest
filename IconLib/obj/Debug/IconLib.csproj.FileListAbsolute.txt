@@ -1,0 +1,7 @@
+D:\DevMain\bdo\SvchostTest\IconLib\bin\Debug\IconLib.dll
+D:\DevMain\bdo\SvchostTest\IconLib\bin\Debug\IconLib.pdb
+D:\DevMain\bdo\SvchostTest\IconLib\obj\Debug\IconLib.csprojResolveAssemblyReference.cache
+D:\DevMain\bdo\SvchostTest\IconLib\obj\Debug\IconLib.System.Drawing.IconLib.Resource.resources
+D:\DevMain\bdo\SvchostTest\IconLib\obj\Debug\IconLib.csproj.GenerateResource.Cache
+D:\DevMain\bdo\SvchostTest\IconLib\obj\Debug\IconLib.dll
+D:\DevMain\bdo\SvchostTest\IconLib\obj\Debug\IconLib.pdb

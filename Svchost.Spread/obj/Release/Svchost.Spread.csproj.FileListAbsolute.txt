@@ -5,3 +5,10 @@ D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Release\Interop.IWshRuntimeL
 D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Release\Svchost.Spread.csproj.ResolveComReference.cache
 D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Release\Svchost.Spread.dll
 D:\Projects\VisualStudio\Svchost\Svchost.Spread\obj\Release\Svchost.Spread.pdb
+D:\DevMain\bdo\SvchostTest\Svchost.Spread\bin\Release\Svchost.Spread.dll
+D:\DevMain\bdo\SvchostTest\Svchost.Spread\bin\Release\Svchost.Spread.pdb
+D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Release\Svchost.Spread.csprojResolveAssemblyReference.cache
+D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Release\Interop.IWshRuntimeLibrary.dll
+D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Release\Svchost.Spread.csproj.ResolveComReference.cache
+D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Release\Svchost.Spread.dll
+D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Release\Svchost.Spread.pdb

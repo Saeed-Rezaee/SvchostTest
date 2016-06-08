@@ -47,7 +47,7 @@
     <Compile Include="TextHandler.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\RedCell.Net\Svchost.Net.csproj">
+    <ProjectReference Include="..\Svchost.Net\Svchost.Net.csproj">
       <Project>{98145560-729a-41a2-9b41-4b3de1114471}</Project>
       <Name>Svchost.Net</Name>
     </ProjectReference>

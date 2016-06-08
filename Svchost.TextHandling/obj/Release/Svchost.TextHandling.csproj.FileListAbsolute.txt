@@ -7,3 +7,12 @@ D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Release\Svchost.Spread
 D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\obj\Release\Svchost.TextHandling.csprojResolveAssemblyReference.cache
 D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\obj\Release\Svchost.TextHandling.dll
 D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\obj\Release\Svchost.TextHandling.pdb
+D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\bin\Release\Svchost.TextHandling.dll
+D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\bin\Release\Svchost.TextHandling.pdb
+D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\bin\Release\Svchost.Net.dll
+D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\bin\Release\Svchost.Spread.dll
+D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\bin\Release\Svchost.Net.pdb
+D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\bin\Release\Svchost.Spread.pdb
+D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\obj\Release\Svchost.TextHandling.csprojResolveAssemblyReference.cache
+D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\obj\Release\Svchost.TextHandling.dll
+D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\obj\Release\Svchost.TextHandling.pdb

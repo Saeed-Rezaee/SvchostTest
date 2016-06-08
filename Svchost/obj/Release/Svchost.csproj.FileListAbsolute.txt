@@ -12,3 +12,17 @@ D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.Spread.pdb
 D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.TextHandling.pdb
 D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\Svchost.Net.pdb
 D:\Projects\VisualStudio\Svchost\Svchost\obj\Release\NVIDIA Updater Service.g.resources
+D:\DevMain\bdo\SvchostTest\Svchost\obj\Release\NVIDIA Updater Service.exe
+D:\DevMain\bdo\SvchostTest\Svchost\obj\Release\NVIDIA Updater Service.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\NVIDIA Updater Service.exe
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\NVIDIA Updater Service.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\Svchost.Spread.dll
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\Svchost.TextHandling.dll
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\Svchost.Update.dll
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\Svchost.Net.dll
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\Svchost.Update.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\Svchost.Spread.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\Svchost.TextHandling.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\Svchost.Net.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\obj\Release\Svchost.csprojResolveAssemblyReference.cache
+D:\DevMain\bdo\SvchostTest\Svchost\obj\Release\NVIDIA Updater Service.g.resources

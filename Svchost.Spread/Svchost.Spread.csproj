@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DriveDetector.cs" />
+    <Compile Include="IconConverter.cs" />
     <Compile Include="Regedit.cs" />
     <Compile Include="Spreader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +58,12 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IconLib\IconLib.csproj">
+      <Project>{ce53747f-d2e6-4e1e-9ef4-a0ae02671b1d}</Project>
+      <Name>IconLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -26,3 +26,19 @@ D:\Projects\Svchost\Svchost\obj\Debug\NVIDIA Updater Service.exe
 D:\Projects\Svchost\Svchost\obj\Debug\NVIDIA Updater Service.pdb
 D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\Svchost.TextHandling.dll
 D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\Svchost.TextHandling.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\obj\Debug\NVIDIA Updater Service.exe
+D:\DevMain\bdo\SvchostTest\Svchost\obj\Debug\NVIDIA Updater Service.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\NVIDIA Updater Service.exe
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\NVIDIA Updater Service.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\Svchost.Spread.dll
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\Svchost.TextHandling.dll
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\Svchost.Update.dll
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\Svchost.Net.dll
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\Svchost.Update.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\Svchost.Spread.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\Svchost.TextHandling.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\Svchost.Net.pdb
+D:\DevMain\bdo\SvchostTest\Svchost\obj\Debug\Svchost.csprojResolveAssemblyReference.cache
+D:\DevMain\bdo\SvchostTest\Svchost\obj\Debug\NVIDIA Updater Service.g.resources
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\IconLib.dll
+D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\IconLib.pdb

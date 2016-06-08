@@ -1,0 +1,11 @@
+D:\DevMain\bdo\SvchostTest\MultiIcon\bin\Debug\MultiIcon.exe
+D:\DevMain\bdo\SvchostTest\MultiIcon\bin\Debug\MultiIcon.pdb
+D:\DevMain\bdo\SvchostTest\MultiIcon\bin\Debug\IconLib.dll
+D:\DevMain\bdo\SvchostTest\MultiIcon\bin\Debug\IconLib.pdb
+D:\DevMain\bdo\SvchostTest\MultiIcon\obj\Debug\MultiIcon.csprojResolveAssemblyReference.cache
+D:\DevMain\bdo\SvchostTest\MultiIcon\obj\Debug\MultiIconTester.FormIconBrowser.resources
+D:\DevMain\bdo\SvchostTest\MultiIcon\obj\Debug\MultiIconTester.Form2.resources
+D:\DevMain\bdo\SvchostTest\MultiIcon\obj\Debug\MultiIconTester.Properties.Resources.resources
+D:\DevMain\bdo\SvchostTest\MultiIcon\obj\Debug\MultiIcon.csproj.GenerateResource.Cache
+D:\DevMain\bdo\SvchostTest\MultiIcon\obj\Debug\MultiIcon.exe
+D:\DevMain\bdo\SvchostTest\MultiIcon\obj\Debug\MultiIcon.pdb
