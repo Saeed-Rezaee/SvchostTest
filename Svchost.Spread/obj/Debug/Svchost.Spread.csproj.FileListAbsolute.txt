@@ -21,3 +21,5 @@ D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Debug\Svchost.Spread.dll
 D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Debug\Svchost.Spread.pdb
 D:\DevMain\bdo\SvchostTest\Svchost.Spread\bin\Debug\IconLib.dll
 D:\DevMain\bdo\SvchostTest\Svchost.Spread\bin\Debug\IconLib.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\bin\Debug\IconLib.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\bin\Debug\IconLib.pdb

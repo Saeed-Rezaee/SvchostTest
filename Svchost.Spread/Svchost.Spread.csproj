@@ -44,6 +44,9 @@
   <ItemGroup>
     <Compile Include="DriveDetector.cs" />
     <Compile Include="IconConverter.cs" />
+    <Compile Include="IconExtractor.cs" />
+    <Compile Include="IconUtil.cs" />
+    <Compile Include="NativeMethods.cs" />
     <Compile Include="Regedit.cs" />
     <Compile Include="Spreader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

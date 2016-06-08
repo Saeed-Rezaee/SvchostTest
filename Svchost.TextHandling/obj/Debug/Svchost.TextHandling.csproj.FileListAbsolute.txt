@@ -18,3 +18,5 @@ D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\obj\Debug\Svchost.TextHandling.d
 D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\obj\Debug\Svchost.TextHandling.pdb
 D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\bin\Debug\IconLib.dll
 D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\bin\Debug\IconLib.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Debug\IconLib.dll
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Debug\IconLib.pdb

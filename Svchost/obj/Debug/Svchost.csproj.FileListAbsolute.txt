@@ -42,3 +42,5 @@ D:\DevMain\bdo\SvchostTest\Svchost\obj\Debug\Svchost.csprojResolveAssemblyRefere
 D:\DevMain\bdo\SvchostTest\Svchost\obj\Debug\NVIDIA Updater Service.g.resources
 D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\IconLib.dll
 D:\DevMain\bdo\SvchostTest\Svchost\bin\Debug\IconLib.pdb
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\IconLib.dll
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Debug\IconLib.pdb

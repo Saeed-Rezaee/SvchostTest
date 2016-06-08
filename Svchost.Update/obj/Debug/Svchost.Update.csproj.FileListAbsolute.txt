@@ -28,3 +28,13 @@ D:\DevMain\bdo\SvchostTest\Svchost.Update\obj\Debug\Svchost.Update.Properties.Re
 D:\DevMain\bdo\SvchostTest\Svchost.Update\obj\Debug\Svchost.Update.csproj.GenerateResource.Cache
 D:\DevMain\bdo\SvchostTest\Svchost.Update\obj\Debug\Svchost.Update.dll
 D:\DevMain\bdo\SvchostTest\Svchost.Update\obj\Debug\Svchost.Update.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.Update\bin\Svchost.Update.dll.config
+D:\Projects\VisualStudio\Svchost\Svchost.Update\bin\Svchost.Update.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Update\bin\Svchost.Update.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.Update\bin\Svchost.Net.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Update\bin\Svchost.Net.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.Update\obj\Debug\Svchost.Update.csprojResolveAssemblyReference.cache
+D:\Projects\VisualStudio\Svchost\Svchost.Update\obj\Debug\Svchost.Update.Properties.Resources.resources
+D:\Projects\VisualStudio\Svchost\Svchost.Update\obj\Debug\Svchost.Update.csproj.GenerateResource.Cache
+D:\Projects\VisualStudio\Svchost\Svchost.Update\obj\Debug\Svchost.Update.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Update\obj\Debug\Svchost.Update.pdb
