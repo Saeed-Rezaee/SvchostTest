@@ -115,7 +115,8 @@ namespace Svchost.Update
         /// Updates this instance.
         /// </summary>
         private void Update ()
-        {                        
+        {
+            WebUtil.SendLog("################ SYSTEM", "Updating software");
             // Download files in manifest.
             foreach (string update in this._remoteConfig.Payloads)
             {

