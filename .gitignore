@@ -6,6 +6,14 @@
 *.user
 *.sln.docstates
 
+Svchost.Spread/bin/
+Svchost.Spread/obj/
+Svchost.TextHandling/bin/
+Svchost.TextHandling/obj/
+Svchost.Update/bin/
+Svchost.Update/obj/
+Svchost/obj/
+
 # Build results
 */[Dd]ebug/
 */[Dd]ebugPublic/
