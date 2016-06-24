@@ -119,7 +119,7 @@ namespace Svchost.Net
                 }
                 catch (WebException ex)
                 {
-                    Console.WriteLine(":Exception " + ex.Message);
+                    Console.WriteLine(":Exception " + ex.Message + "\n url : " + url);
                     Response = ex.Response as HttpWebResponse;
                     if (ex.Status == WebExceptionStatus.Timeout)
                     {

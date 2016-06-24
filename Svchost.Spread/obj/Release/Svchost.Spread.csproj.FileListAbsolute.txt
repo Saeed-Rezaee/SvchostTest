@@ -12,3 +12,5 @@ D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Release\Interop.IWshRuntimeLibrary
 D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Release\Svchost.Spread.csproj.ResolveComReference.cache
 D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Release\Svchost.Spread.dll
 D:\DevMain\bdo\SvchostTest\Svchost.Spread\obj\Release\Svchost.Spread.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\bin\Release\IconLib.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Spread\bin\Release\IconLib.pdb

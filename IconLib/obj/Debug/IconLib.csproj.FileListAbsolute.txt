@@ -5,3 +5,9 @@ D:\DevMain\bdo\SvchostTest\IconLib\obj\Debug\IconLib.System.Drawing.IconLib.Reso
 D:\DevMain\bdo\SvchostTest\IconLib\obj\Debug\IconLib.csproj.GenerateResource.Cache
 D:\DevMain\bdo\SvchostTest\IconLib\obj\Debug\IconLib.dll
 D:\DevMain\bdo\SvchostTest\IconLib\obj\Debug\IconLib.pdb
+D:\Projects\VisualStudio\Svchost\IconLib\bin\Debug\IconLib.dll
+D:\Projects\VisualStudio\Svchost\IconLib\bin\Debug\IconLib.pdb
+D:\Projects\VisualStudio\Svchost\IconLib\obj\Debug\IconLib.System.Drawing.IconLib.Resource.resources
+D:\Projects\VisualStudio\Svchost\IconLib\obj\Debug\IconLib.csproj.GenerateResource.Cache
+D:\Projects\VisualStudio\Svchost\IconLib\obj\Debug\IconLib.dll
+D:\Projects\VisualStudio\Svchost\IconLib\obj\Debug\IconLib.pdb

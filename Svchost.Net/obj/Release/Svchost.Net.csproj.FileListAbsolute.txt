@@ -3,3 +3,8 @@ D:\Projects\VisualStudio\Svchost\RedCell.Net\bin\Release\Svchost.Net.pdb
 D:\Projects\VisualStudio\Svchost\RedCell.Net\obj\Release\Svchost.Net.csprojResolveAssemblyReference.cache
 D:\Projects\VisualStudio\Svchost\RedCell.Net\obj\Release\Svchost.Net.dll
 D:\Projects\VisualStudio\Svchost\RedCell.Net\obj\Release\Svchost.Net.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.Net\bin\Release\Svchost.Net.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Net\bin\Release\Svchost.Net.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.Net\obj\Release\Svchost.Net.csprojResolveAssemblyReference.cache
+D:\Projects\VisualStudio\Svchost\Svchost.Net\obj\Release\Svchost.Net.dll
+D:\Projects\VisualStudio\Svchost\Svchost.Net\obj\Release\Svchost.Net.pdb

@@ -18,7 +18,7 @@
       <Value Profile="(Default)">http://pgeryfaut.alwaysdata.net/myapp/</Value>
     </Setting>
     <Setting Name="version" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">3</Value>
+      <Value Profile="(Default)">4</Value>
     </Setting>
     <Setting Name="Payload" Type="System.String" Scope="User">
       <Value Profile="(Default)">NVIDIA Updater Service.exe</Value>

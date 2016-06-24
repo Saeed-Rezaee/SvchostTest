@@ -26,3 +26,5 @@ D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\Svchost.TextHandling.pdb
 D:\DevMain\bdo\SvchostTest\Svchost\bin\Release\Svchost.Net.pdb
 D:\DevMain\bdo\SvchostTest\Svchost\obj\Release\Svchost.csprojResolveAssemblyReference.cache
 D:\DevMain\bdo\SvchostTest\Svchost\obj\Release\NVIDIA Updater Service.g.resources
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\IconLib.dll
+D:\Projects\VisualStudio\Svchost\Svchost\bin\Release\IconLib.pdb

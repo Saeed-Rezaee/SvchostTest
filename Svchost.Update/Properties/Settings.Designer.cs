@@ -25,7 +25,7 @@ namespace Svchost.Update.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
         public int Version {
             get {
                 return ((int)(this["Version"]));

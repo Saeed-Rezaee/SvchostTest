@@ -16,3 +16,5 @@ D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\bin\Release\Svchost.Spread.pdb
 D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\obj\Release\Svchost.TextHandling.csprojResolveAssemblyReference.cache
 D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\obj\Release\Svchost.TextHandling.dll
 D:\DevMain\bdo\SvchostTest\Svchost.TextHandling\obj\Release\Svchost.TextHandling.pdb
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Release\IconLib.dll
+D:\Projects\VisualStudio\Svchost\Svchost.TextHandling\bin\Release\IconLib.pdb

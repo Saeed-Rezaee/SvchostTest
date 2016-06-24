@@ -13,6 +13,8 @@ Svchost.TextHandling/obj/
 Svchost.Update/bin/
 Svchost.Update/obj/
 Svchost/obj/
+Svchost/bin/Debug/
+Svchost/bin/Release/
 
 # Build results
 */[Dd]ebug/

